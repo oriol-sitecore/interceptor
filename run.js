@@ -86,7 +86,7 @@ app.run(function ($rootScope, $state, $stateParams, $timeout, DataLayerService, 
 
     $(document).keypress(function(e) {
         // 1 = a, 3 = c, 5 = e, 6 = f, 15 = o, 19 = s, 20 = t
-        if(e.which === 16 && e.which === 65 && confirm("Start as anonymous visitor?")) {
+        if(e.which === 36 && confirm("Start as anonymous visitor?")) {
             facebookUser.then(function(user) {
                 if (user.loggedIn) {
                     user.logout();
@@ -107,7 +107,7 @@ app.run(function ($rootScope, $state, $stateParams, $timeout, DataLayerService, 
                 // This is to allow the session in Boxever to instantiate
                 $state.go("landingPage");
             });
-        } else if(e.ctrlKey && e.which === 3 && confirm("Simulate close session?")) {
+        } else if(e.which === 33 && confirm("Simulate close session?")) {
             DataCaptureService.closeSession();
         } else if(e.ctrlKey && e.which === 15 && confirm("Open guest profile in app?")) {
             var bid = Boxever.getID();

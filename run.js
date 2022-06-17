@@ -141,8 +141,8 @@ document.addEventListener('keyup', function(event) {
                         console.log("Subscribed to web push notifications");
                         DataCaptureService.sendWebPushSubscriptionData(sdk.subscription);
                     });
-                }*/
+                }
             });
-        }
+        }*/
     });
 });

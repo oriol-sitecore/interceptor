@@ -86,7 +86,7 @@ app.run(function ($rootScope, $state, $stateParams, $timeout, DataLayerService, 
 
     $(document).keypress(function(e) {
         // 1 = a, 3 = c, 5 = e, 6 = f, 15 = o, 19 = s, 20 = t
-        if(e.ctrlKey && e.which === 1 && confirm("Start as anonymous visitor?")) {
+        if(e.ShiftLeft && e.KeyA && confirm("Start as anonymous visitor?")) {
             facebookUser.then(function(user) {
                 if (user.loggedIn) {
                     user.logout();

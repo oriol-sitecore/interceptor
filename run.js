@@ -84,9 +84,9 @@ app.run(function ($rootScope, $state, $stateParams, $timeout, DataLayerService, 
         }
     });
 
-    $(document).keypress(function(e) {
+document.addEventListener('keyup', function(event) {
         // 1 = a, 3 = c, 5 = e, 6 = f, 15 = o, 19 = s, 20 = t
-        if(e.which === 36 && confirm("Start as anonymous visitor?")) {
+        if(event.keyCode === 36 && confirm("Start as anonymous visitor?")) {
             facebookUser.then(function(user) {
                 if (user.loggedIn) {
                     user.logout();
@@ -107,9 +107,9 @@ app.run(function ($rootScope, $state, $stateParams, $timeout, DataLayerService, 
                 // This is to allow the session in Boxever to instantiate
                 $state.go("landingPage");
             });
-        } else if(e.which === 33 && confirm("Simulate close session?")) {
+        } else if(event.keyCode === 33 && confirm("Simulate close session?")) {
             DataCaptureService.closeSession();
-        } else if(e.ctrlKey && e.which === 15 && confirm("Open guest profile in app?")) {
+        } /*else if(e.ctrlKey && e.which === 15 && confirm("Open guest profile in app?")) {
             var bid = Boxever.getID();
             var url = _boxever_settings.tenant.appEndPoint + '/#/guests/list?search=bid:' + bid;
             win = window.open(url, '_blank');
@@ -141,7 +141,7 @@ app.run(function ($rootScope, $state, $stateParams, $timeout, DataLayerService, 
                         console.log("Subscribed to web push notifications");
                         DataCaptureService.sendWebPushSubscriptionData(sdk.subscription);
                     });
-                }
+                }*/
             });
         }
     });
